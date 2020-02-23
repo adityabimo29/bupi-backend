@@ -1,10 +1,10 @@
 const bcrypt = require('bcrypt');
 
-const comparePassword = async myPassword => {
+const comparePassword = async (myPassword,hash) => {
     
-    const hashing = bcrypt.compare(myPassword, hash, function(err, result) {
-        return result;
-    });
+    const hashing = bcrypt.compare(myPassword, hash).then(res => {
+        return res;
+    })
 
     return hashing;
     

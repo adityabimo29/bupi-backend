@@ -1,7 +1,7 @@
-const connection    = require('./connection');
+const sequelize    = require('./connection');
 const {PORT}          = require('./environment');
 
 module.exports = {
-    connection,
+    sequelize,
     PORT
 }
