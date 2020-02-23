@@ -1,6 +1,9 @@
-const users = require('./users');
-
+const users         = require('./users');
+const authors       = require('./authors');
+const publishers    = require('./publishers');
 
 module.exports = {
-    users
+    users,
+    authors,
+    publishers
 }
