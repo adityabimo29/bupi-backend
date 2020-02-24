@@ -12,13 +12,12 @@ module.exports = {
        })
     },
     register: async (req,res) => {
-        
         const emailExist = await users.findOne({
             where:{
                 email:req.body.email
             }
         }).then(res=>{
-            console.log(res)
+            // console.log(res)
             if(res !== null){
                 return true
             }else{
