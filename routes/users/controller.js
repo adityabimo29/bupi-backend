@@ -109,7 +109,37 @@ module.exports = {
             message:'delete successfully',
             data:result
         })
-    }
+    },
+    getByRole: async (req,res) => {
+        const result = await users.findOne({
+            where:{
+                id_role:req.params.id
+            }
+        }); 
+        res.json({
+            data:result
+        })
+    },
+    getByGenre: async (req,res) => {
+        const result = await users.findOne({
+            where:{
+                id_genre:req.params.id
+            }
+        }); 
+        res.json({
+            data:result
+        })
+    },
+    getByExp: async (req,res) => {
+        const result = await users.findOne({
+            where:{
+                experience:req.params.value
+            }
+        }); 
+        res.json({
+            data:result
+        })
+    },
 
 
 }
