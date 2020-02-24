@@ -1,9 +1,9 @@
 const {sequelize} = require('../../config');
-const {instruments}     = require('../../model');
+const {roles}     = require('../../model');
 
 module.exports = {
     getAll: async (req,res) => {
-       const result = await instruments.findAll({}); 
+       const result = await roles.findAll({}); 
        res.json({
            message:'Lists Data',
            data:result
@@ -11,7 +11,7 @@ module.exports = {
     },
     postData: async (req,res) => {
 
-            const result    = await instruments.create(req.body);
+            const result    = await roles.create(req.body);
             res.json({
                 message:'Data Successfully added.',
                 data:result
@@ -19,9 +19,9 @@ module.exports = {
              
     },
     getById: async (req,res) => {
-        const result = await instruments.findOne({
+        const result = await roles.findOne({
             where:{
-                id_instrument:req.params.id
+                id_role:req.params.id
             }
         }); 
         res.json({
@@ -31,9 +31,9 @@ module.exports = {
 
     editData: async (req,res) => {
         let data = req.body;
-        const result    = await instruments.update(data,{
+        const result    = await roles.update(data,{
             where:{
-                id_instrument:req.params.id
+                id_role:req.params.id
             }
         })
         res.json({
@@ -45,9 +45,9 @@ module.exports = {
         let data = {
             status:'off'
         };
-        const result    = await instruments.update(data,{
+        const result    = await roles.update(data,{
             where:{
-                id_instrument:req.params.id
+                id_role:req.params.id
             }
         })
         res.json({

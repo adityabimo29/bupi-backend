@@ -8,6 +8,9 @@ module.exports = sequelize.define("users", {
         autoIncrement: true,
         primaryKey: true
     },
+    avatar:{
+        type: Sequelize.STRING
+    },
     first_name: {
         type: Sequelize.STRING
     },

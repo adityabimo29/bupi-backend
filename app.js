@@ -9,7 +9,7 @@ const jwt  = require('express-jwt');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var instrumentsRouter = require('./routes/instruments');
+var rolesRouter = require('./routes/roles');
 var genresRouter = require('./routes/genres');
 
 var app = express();
@@ -43,7 +43,7 @@ app.use(function (err, req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/instruments', instrumentsRouter);
+app.use('/roles', rolesRouter);
 app.use('/genres', genresRouter);
 app.use('/assets',express.static('assets'));
 module.exports = app;

@@ -1,9 +1,9 @@
-const users         = require('./users');
-const genres       = require('./genres');
-const instruments    = require('./instruments');
+const users             = require('./users');
+const roles            = require('./roles');
+const instruments       = require('./roles');
 
 module.exports = {
     users,
-    genres,
+    roles,
     instruments
 }
