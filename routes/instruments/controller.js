@@ -1,9 +1,9 @@
 const {sequelize} = require('../../config');
-const {authors}     = require('../../model');
+const {instruments}     = require('../../model');
 
 module.exports = {
     getAll: async (req,res) => {
-       const result = await authors.findAll({}); 
+       const result = await instruments.findAll({}); 
        res.json({
            message:'Lists Data',
            data:result
@@ -11,7 +11,7 @@ module.exports = {
     },
     postData: async (req,res) => {
 
-            const result    = await authors.create(req.body);
+            const result    = await instruments.create(req.body);
             res.json({
                 message:'Data Successfully added.',
                 data:result
@@ -19,9 +19,9 @@ module.exports = {
              
     },
     getById: async (req,res) => {
-        const result = await authors.findOne({
+        const result = await instruments.findOne({
             where:{
-                id_author:req.params.id
+                id_instrument:req.params.id
             }
         }); 
         res.json({
@@ -31,9 +31,9 @@ module.exports = {
 
     editData: async (req,res) => {
         let data = req.body;
-        const result    = await authors.update(data,{
+        const result    = await instruments.update(data,{
             where:{
-                id_author:req.params.id
+                id_instrument:req.params.id
             }
         })
         res.json({
@@ -45,9 +45,9 @@ module.exports = {
         let data = {
             status:'off'
         };
-        const result    = await authors.update(data,{
+        const result    = await instruments.update(data,{
             where:{
-                id_author:req.params.id
+                id_instrument:req.params.id
             }
         })
         res.json({

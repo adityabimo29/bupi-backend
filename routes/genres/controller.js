@@ -1,9 +1,9 @@
 const {sequelize} = require('../../config');
-const {publishers}     = require('../../model');
+const {genres}     = require('../../model');
 
 module.exports = {
     getAll: async (req,res) => {
-       const result = await publishers.findAll({}); 
+       const result = await genres.findAll({}); 
        res.json({
            message:'Lists Data',
            data:result
@@ -11,7 +11,7 @@ module.exports = {
     },
     postData: async (req,res) => {
 
-            const result    = await publishers.create(req.body);
+            const result    = await genres.create(req.body);
             res.json({
                 message:'Data Successfully added.',
                 data:result
@@ -19,9 +19,9 @@ module.exports = {
              
     },
     getById: async (req,res) => {
-        const result = await publishers.findOne({
+        const result = await genres.findOne({
             where:{
-                id_author:req.params.id
+                id_genre:req.params.id
             }
         }); 
         res.json({
@@ -31,9 +31,9 @@ module.exports = {
 
     editData: async (req,res) => {
         let data = req.body;
-        const result    = await publishers.update(data,{
+        const result    = await genres.update(data,{
             where:{
-                id_author:req.params.id
+                id_genre:req.params.id
             }
         })
         res.json({
@@ -45,9 +45,9 @@ module.exports = {
         let data = {
             status:'off'
         };
-        const result    = await publishers.update(data,{
+        const result    = await genres.update(data,{
             where:{
-                id_author:req.params.id
+                id_genre:req.params.id
             }
         })
         res.json({

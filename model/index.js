@@ -1,9 +1,9 @@
 const users         = require('./users');
-const authors       = require('./authors');
-const publishers    = require('./publishers');
+const genres       = require('./genres');
+const instruments    = require('./instruments');
 
 module.exports = {
     users,
-    authors,
-    publishers
+    genres,
+    instruments
 }
