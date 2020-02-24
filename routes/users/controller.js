@@ -2,6 +2,7 @@ const {sequelize} = require('../../config');
 const {users}     = require('../../model');
 const {comparePassword,hashingPassword} = require('../../helpers');
 var jwt = require('jsonwebtoken');
+var nodemailer = require('nodemailer');
 
 module.exports = {
     getAllUsers: async (req,res) => {
@@ -139,6 +140,33 @@ module.exports = {
             data:result
         })
     },
+    sendEmail: async (req,res) => {
+
+        var transporter = nodemailer.createTransport({
+            host: "mail.porus.xyz",
+            port: 465,
+            auth: {
+                user: 'bokoblin@porus.xyz',
+                pass: 'XXklW]k^HbJr'
+            }
+        });
+
+        var mailOptions = {
+            from: req.body.emailFrom,
+            to: req.body.emailTo,
+            subject: req.body.subject,
+            text: req.body.text
+        };
+
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) throw err;
+            console.log('Email sent: ' + info.response);
+        });
+
+        res.json({
+            status:'OK'
+        })
+    }
 
 
 }
