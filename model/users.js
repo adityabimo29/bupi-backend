@@ -8,7 +8,10 @@ module.exports = sequelize.define("users", {
         autoIncrement: true,
         primaryKey: true
     },
-    full_name: {
+    first_name: {
+        type: Sequelize.STRING
+    },
+    last_name: {
         type: Sequelize.STRING
     },
     email: {
@@ -17,9 +20,24 @@ module.exports = sequelize.define("users", {
     password: {
         type: Sequelize.STRING
     },
-    id_role: {
-        type: Sequelize.INTEGER,
-        defaultValue:2
+    id_instrument: {
+        type: Sequelize.INTEGER
+    },
+    id_genre: {
+        type: Sequelize.INTEGER
+    },
+    experience: {
+        type: Sequelize.INTEGER
+    },
+    about: {
+        type: Sequelize.STRING
+    },
+    link_video: {
+        type: Sequelize.INTEGER
+    },
+    status: {
+        type: Sequelize.STRING,
+        defaultValue:'on'
     },
     created: {
         type: Sequelize.DATE,

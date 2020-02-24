@@ -13,5 +13,5 @@ module.exports = sequelize.define("authors", {
     },
     last_name: {
         type: Sequelize.STRING
-    },
+    }
 });
