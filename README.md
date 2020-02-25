@@ -2,5 +2,3 @@
 
 ## Team Backend
 - Aditya Bimo Prayogo
-- Indra Surya
-- Elinda
