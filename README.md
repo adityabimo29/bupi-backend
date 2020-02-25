@@ -1,4 +1,4 @@
-## Backend for BUPI [With Express,Passport,Mysql2]
+## Backend for Music Byte [With Express,JWT,Mysql2,Sequelize,Bcrypt]
 
 ## Team Backend
 - Aditya Bimo Prayogo
