@@ -5,12 +5,13 @@ var logger = require('morgan');
 
 // Added Library
 const cors      = require('cors');
-const jwt  = require('express-jwt');
+const jwt       = require('express-jwt');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var rolesRouter = require('./routes/roles');
 var genresRouter = require('./routes/genres');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -45,5 +46,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/roles', rolesRouter);
 app.use('/genres', genresRouter);
+app.use('/comments', commentsRouter);
 app.use('/assets',express.static('assets'));
 module.exports = app;

@@ -1,9 +1,9 @@
 const users             = require('./users');
-const roles            = require('./roles');
-const instruments       = require('./roles');
+const roles             = require('./roles');
+const comments          = require('./comments');
 
 module.exports = {
     users,
     roles,
-    instruments
+    comments
 }
