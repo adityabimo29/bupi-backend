@@ -25,7 +25,8 @@ app.use(cors());
 app.use(jwt({secret:"bupi-secret"}).unless({
     path:[
         {url:'/',methods:['GET']},
-        {url:'/blogs',methods:['GET']},
+        {url:'/roles',methods:['GET']},
+        {url:'/genres',methods:['GET']},
         {url:/^\/blogs\/detail\/.*/,methods:['GET']},
         {url:/^\/assets\/.*/,methods:['GET']},
         {url:'/users/login',methods:['POST']},
