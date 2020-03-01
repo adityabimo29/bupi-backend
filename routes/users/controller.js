@@ -33,10 +33,11 @@ module.exports = {
             })
         }else{
             const hashing   = await hashingPassword(req.body.password);
-
+            const youtube   = req.body.link_video.split('v=');
             const result    = await users.create({
                 ...req.body,
-                password:hashing
+                password:hashing,
+                link_video:youtube[1]
             });
             res.json({
                 message:'Data Successfully added.',
@@ -93,9 +94,11 @@ module.exports = {
             data = req.body;
         }else{
             const hashing = await hashingPassword(req.body.password);
+            const youtube   = req.body.link_video.split('v=');
             data = {
                 ...req.body,
-                password:hashing
+                password:hashing,
+                link_video:youtube[1]
             }
         }
         const result    = await users.update(data,{
