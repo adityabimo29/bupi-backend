@@ -23,7 +23,7 @@ module.exports = sequelize.define("users", {
     password: {
         type: Sequelize.STRING
     },
-    id_roles: {
+    id_role: {
         type: Sequelize.INTEGER
     },
     id_genre: {
