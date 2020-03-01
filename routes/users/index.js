@@ -1,6 +1,6 @@
 const express   = require('express');
 const router    = express.Router();
-const {getAllUsers,login,register,getByEmail,editUser ,getByExp , getByGenre ,getByRole ,sendEmail}  = require('./controller');
+const { listUsers,getAllUsers,login,register,getByEmail,editUser ,getByExp , getByGenre ,getByRole ,sendEmail}  = require('./controller');
 
 router.get('/',getAllUsers);
 router.get('/:email',getByEmail);
@@ -11,6 +11,7 @@ router.post('/recruit',sendEmail);
 router.get('/roles/:id',getByRole);
 router.get('/genres/:id',getByGenre);
 router.get('/experience/:value',getByExp);
+router.post('/listMusicians', listUsers);
 
 
 module.exports = router;

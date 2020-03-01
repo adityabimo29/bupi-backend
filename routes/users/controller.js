@@ -3,6 +3,7 @@ const {users}     = require('../../model');
 const {comparePassword,hashingPassword} = require('../../helpers');
 var jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
+const { QueryTypes } = require('sequelize');
 
 module.exports = {
     getAllUsers: async (req,res) => {
@@ -62,6 +63,17 @@ module.exports = {
             }else{
                 res.send({error:'Email or Password is wrong.'})
             }   
+    },
+    listUsers: async (req,res) => {
+
+        const result = await sequelize.query('SELECT * FROM users u JOIN genres g ON u.id_genre = g.id_genre JOIN roles r ON u.id_role = r.id_role WHERE u.id_user != :id_user',{
+            replacements: { id_user: req.body.id_user },
+            type: QueryTypes.SELECT
+          });
+          res.json({
+            data:result
+        })
+      
     },
 
     getByEmail: async (req,res) => {
