@@ -1,5 +1,7 @@
 const {sequelize} = require('../../config');
 const {users}     = require('../../model');
+const {roles}     = require('../../model');
+const {genres}     = require('../../model');
 const {comparePassword,hashingPassword} = require('../../helpers');
 var jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
@@ -52,10 +54,26 @@ module.exports = {
                     email:req.body.email
                 }
             }); 
+            const {id_user,email,first_name,id_role,id_genre} = result;
+
+            const role = await roles.findOne({
+                where:{
+                    id_role:id_role
+                }
+            }); 
+
+            const genre = await genres.findOne({
+                where:{
+                    id_genre:id_genre
+                }
+            }); 
+
+            const genre_name = genre.name;
+            const role_name  = role.name;
+            
             
            const compare = await comparePassword(req.body.password,result.password);
-           const {id_user,email,first_name} = result;
-           const token = await jwt.sign({ id_user,email,first_name }, 'bupi-secret', { expiresIn:'30m' })
+           const token = await jwt.sign({ id_user,email,first_name , genre_name , role_name }, 'bupi-secret', { expiresIn:'30m' })
             if(compare){
                 res.json({
                     message:'Login Success !',
@@ -68,6 +86,17 @@ module.exports = {
     listUsers: async (req,res) => {
 
         const result = await sequelize.query('SELECT * FROM users u JOIN genres g ON u.id_genre = g.id_genre JOIN roles r ON u.id_role = r.id_role WHERE u.id_user != :id_user',{
+            replacements: { id_user: req.body.id_user },
+            type: QueryTypes.SELECT
+          });
+          res.json({
+            data:result
+        })
+      
+    },
+    listUsers: async (req,res) => {
+
+        const result = await sequelize.query('SELECT * FROM users u JOIN genres g ON u.id_genre = g.id_genre JOIN roles r ON u.id_role = r.id_role WHERE u.id_user = :id_user',{
             replacements: { id_user: req.body.id_user },
             type: QueryTypes.SELECT
           });
