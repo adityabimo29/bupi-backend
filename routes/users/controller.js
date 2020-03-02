@@ -54,7 +54,7 @@ module.exports = {
                     email:req.body.email
                 }
             }); 
-            const {id_user,email,first_name,id_role,id_genre} = result;
+            const {id_user,email,first_name ,last_name,avatar,link_video,about,experience,id_role,id_genre} = result;
 
             const role = await roles.findOne({
                 where:{
@@ -73,7 +73,7 @@ module.exports = {
             
             
            const compare = await comparePassword(req.body.password,result.password);
-           const token = await jwt.sign({ id_user,email,first_name , genre_name , role_name }, 'bupi-secret', { expiresIn:'30m' })
+           const token = await jwt.sign({ id_user,email,first_name ,last_name,avatar,link_video,about,experience, genre_name , role_name }, 'bupi-secret', { expiresIn:'30m' })
             if(compare){
                 res.json({
                     message:'Login Success !',
