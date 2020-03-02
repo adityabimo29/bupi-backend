@@ -83,10 +83,10 @@ module.exports = {
                 res.send({error:'Email or Password is wrong.'})
             }   
     },
-    listUsers: async (req,res) => {
+    otherProfile: async (req,res) => {
 
-        const result = await sequelize.query('SELECT * FROM users u JOIN genres g ON u.id_genre = g.id_genre JOIN roles r ON u.id_role = r.id_role WHERE u.id_user != :id_user',{
-            replacements: { id_user: req.body.id_user },
+        const result = await sequelize.query('SELECT u.id_user,u.first_name,u.last_name,u.email,u.avatar,u.experience,u.link_video,u.about,g.name AS genre , r.name AS role FROM users u JOIN genres g ON u.id_genre = g.id_genre JOIN roles r ON u.id_role = r.id_role WHERE u.id_user = :id_user',{
+            replacements: { id_user: req.params.id },
             type: QueryTypes.SELECT
           });
           res.json({
