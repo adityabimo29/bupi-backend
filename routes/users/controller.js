@@ -195,11 +195,18 @@ module.exports = {
             }
         });
 
+        // var mailOptions = {
+        //     from: req.body.emailFrom,
+        //     to: req.body.emailTo,
+        //     subject: req.body.subject,
+        //     text: req.body.text
+        // };
+
         var mailOptions = {
-            from: req.body.emailFrom,
+            from: 'franjesky@hotmail.com',
             to: req.body.emailTo,
-            subject: req.body.subject,
-            text: req.body.text
+            subject: 'Recruit Member',
+            text:'do you want to join us ?'
         };
 
         transporter.sendMail(mailOptions, (err, info) => {
