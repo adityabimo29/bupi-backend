@@ -11,7 +11,7 @@ router.post('/recruit',sendEmail);
 router.get('/roles/:id',getByRole);
 router.get('/genres/:id',getByGenre);
 router.get('/experience/:value',getByExp);
-router.post('/listMusicians', listUsers);
+router.get('/listMusicians/:id', listUsers);
 router.get('/profile/:id', otherProfile);
 
 
