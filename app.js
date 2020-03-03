@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var rolesRouter = require('./routes/roles');
 var genresRouter = require('./routes/genres');
 var commentsRouter = require('./routes/comments');
+var likesRouter = require('./routes/likes');
 
 var app = express();
 
@@ -48,5 +49,6 @@ app.use('/users', usersRouter);
 app.use('/roles', rolesRouter);
 app.use('/genres', genresRouter);
 app.use('/comments', commentsRouter);
+app.use('/likes', likesRouter);
 app.use('/assets',express.static('assets'));
 module.exports = app;
