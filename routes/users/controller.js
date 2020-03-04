@@ -190,8 +190,8 @@ module.exports = {
             host: "mail.porus.xyz",
             port: 465,
             auth: {
-                user: 'bokoblin@porus.xyz',
-                pass: 'XXklW]k^HbJr'
+                user: 'admin@porus.xyz',
+                pass: '1MJ}57yShX]q'
             }
         });
 
@@ -203,7 +203,7 @@ module.exports = {
         // };
 
         var mailOptions = {
-            from: 'franjesky@hotmail.com',
+            from: 'admin@porus.xyz',
             to: req.body.emailTo,
             subject: 'Recruit Member',
             text:'do you want to join us ?'
