@@ -206,7 +206,7 @@ module.exports = {
             from: 'admin@porus.xyz',
             to: req.body.emailTo,
             subject: 'Recruit Member',
-            text:'do you want to join us ?'
+            text:req.body.first_name + '['+ req.body.email + ']' + ' Invite you .do you want to join us ?'
         };
 
         transporter.sendMail(mailOptions, (err, info) => {
